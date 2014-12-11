@@ -79,6 +79,12 @@ hr.star-primary:after {
     margin: 0 auto;
 }
 
+.img-circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+}
+
 header {
     text-align: center;
     color: #fff;
@@ -234,6 +240,7 @@ section.success {
 
 #portfolio .portfolio-item .portfolio-link .caption .caption-content i {
     margin-top: -12px;
+    padding: 8px;
 }
 
 #portfolio .portfolio-item .portfolio-link .caption .caption-content h3,
