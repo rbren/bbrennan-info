@@ -22,7 +22,7 @@ a:focus,
 a:active,
 a.active {
     outline: 0;
-    color: #18bc9c;
+    color: #1E8BC3;
 }
 
 h1,
@@ -31,13 +31,12 @@ h3,
 h4,
 h5,
 h6 {
-    text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
 }
 
-hr.star-light,
-hr.star-primary {
+hr.circle-light,
+hr.circle-primary {
     margin: 25px auto 30px;
     padding: 0;
     max-width: 250px;
@@ -46,9 +45,9 @@ hr.star-primary {
     text-align: center;
 }
 
-hr.star-light:after,
-hr.star-primary:after {
-    content: "\f005";
+hr.circle-light:after,
+hr.circle-primary:after {
+    content: "\f111";
     display: inline-block;
     position: relative;
     top: -.8em;
@@ -57,20 +56,20 @@ hr.star-primary:after {
     font-size: 2em;
 }
 
-hr.star-light {
+hr.circle-light {
     border-color: #fff;
 }
 
-hr.star-light:after {
+hr.circle-light:after {
     color: #fff;
-    background-color: #18bc9c;
+    background-color: #1E8BC3;
 }
 
-hr.star-primary {
+hr.circle-primary {
     border-color: #2c3e50;
 }
 
-hr.star-primary:after {
+hr.circle-primary:after {
     color: #2c3e50;
     background-color: #fff;
 }
@@ -88,7 +87,7 @@ hr.star-primary:after {
 header {
     text-align: center;
     color: #fff;
-    background: #18bc9c;
+    background: #1E8BC3;
 }
 
 header .container {
@@ -116,7 +115,7 @@ header .intro-text .skills {
 
 @media(min-width:768px) {
     header .container {
-        padding-top: 200px;
+        padding-top: 150px;
         padding-bottom: 100px;
     }
 
@@ -187,7 +186,7 @@ section h2 {
 
 section.success {
     color: #fff;
-    background: #18bc9c;
+    background: #1E8BC3;
 }
 
 @media(max-width:767px) {
@@ -217,7 +216,7 @@ section.success {
     width: 100%;
     height: 100%;
     opacity: 0;
-    background: rgba(24,188,156,.9);
+    background: rgba(30, 139, 195, .9);
     -webkit-transition: all ease .5s;
     -moz-transition: all ease .5s;
     transition: all ease .5s;
@@ -272,7 +271,7 @@ section.success {
 .btn-outline:active,
 .btn-outline.active {
     border: solid 2px #fff;
-    color: #18bc9c;
+    color: #1E8BC3;
     background: #fff;
 }
 
@@ -325,7 +324,7 @@ section.success {
 }
 
 .floating-label-form-group-with-focus label {
-    color: #18bc9c;
+    color: #1E8BC3;
 }
 
 form .row:first-child .floating-label-form-group {

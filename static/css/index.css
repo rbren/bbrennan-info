@@ -1,0 +1,38 @@
+header {
+  color: #3498DB;
+  position: relative;
+  height: 1000px;
+  overflow: hidden;
+  background-color: #1E8BC3;
+}
+
+header img.header-img {
+  position: absolute;
+  top: -200px;
+  left: 0;
+  right: 0;
+  height: 1500px;
+  margin-left: auto;
+  margin-right:auto;
+
+  -webkit-filter: brightness(35%);
+  filter: brightness(35%);
+}
+
+header h1 {
+  font-size: 60px;
+}
+
+header h3 {
+  font-size: 32px;
+}
+
+header h3 .fa {
+  font-size: 12px;
+  line-height: 32px;
+  vertical-align: middle;
+}
+
+.caption-content {
+  padding: 10px;
+}

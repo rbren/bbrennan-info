@@ -1,18 +1,15 @@
 var FS = require('fs');
-var EXPRESS = require('express');
-var APP = EXPRESS();
+var Express = require('express');
+var App = Express();
 
-APP.set('views', __dirname + '/views')
-APP.set('view engine', 'ejs');
+App.set('views', __dirname + '/views')
+App.set('view engine', 'jade');
 
-APP.use(require('body-parser').json());
+App.use(require('body-parser').json());
 
-APP.get("/res/*", function(req, res) {
-  var path = sanitizePath(req.url);
-  res.sendFile(__dirname + path);
-});
+App.use(Express.static(__dirname + '/static'));
 
-APP.post('/contact', function(req, res) {
+App.post('/contact', function(req, res) {
   console.log('contact:' + JSON.stringify(req.body));
   var text =
       'Date:' + new Date() + '\n' +
@@ -29,11 +26,11 @@ APP.post('/contact', function(req, res) {
   }
 });
 
-APP.get('*', function(req, res) {
-  res.render('index.ejs');
+App.get('*', function(req, res) {
+  res.render('index');
 });
 
-APP.listen(3000);
+App.listen(3000);
 
 var sanitizePath = function(path) {
   // Get rid of weird chars

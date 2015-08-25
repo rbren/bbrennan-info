@@ -1,0 +1,27 @@
+{
+  "name": "bbrennan-info",
+  "version": "1.0.0",
+  "description": "homepage ========",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "ejs": "^2.3.3",
+    "express": "^4.13.3",
+    "jade": "^1.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bobby-brennan/bbrennan-info.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/bobby-brennan/bbrennan-info/issues"
+  },
+  "homepage": "https://github.com/bobby-brennan/bbrennan-info#readme"
+}
