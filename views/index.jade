@@ -54,9 +54,7 @@ html(lang='en')
         .row
           .col-lg-12.text-center
             h2 Portfolio
-            |                     
             hr.circle-primary
-        |             
         .row
           mixin portfolio-item(image, caption, link)
             .col-sm-4.portfolio-item
@@ -71,15 +69,15 @@ html(lang='en')
           +portfolio-item('/img/portfolio/posted.png',
                           'Posted uses natural language processing to detect breaking news on any topic in real time',
                           'https://play.google.com/store/apps/details?id=info.bbrennan.posted&hl=en')
+          +portfolio-item('/img/portfolio/anyapi.png',
+                          'AnyAPI provides documentation and test consoles for over 100 public APIs',
+                          'https://any-api.com')
           +portfolio-item('/img/portfolio/webans.png',
                           'An example of work I did in open-domain, long-form question answering while working at Google. See LinkedIn for more details',
                           'https://www.google.com/search?q=Why+is+the+sky+blue?')
           +portfolio-item('/img/portfolio/nostop.png',
                           'A brief study of Betteridge\'s assertion that all headlines in the form of a question can be answered \'no.\'',
                           'http://www.nostopasking.com:3020/nostop')
-          +portfolio-item('/img/portfolio/fourier.png',
-                           'A visualization and explanation of the Fourier transform',
-                           'http://www.bbrennan.info/fourier-work.html')
           +portfolio-item('/img/portfolio/ffk.png',
                           'Fat Fingers Keyboard is a now-abandoned alternative keyboard I built for Android in 2009',
                           'https://play.google.com/store/apps/details?id=com.bobby.brennan.fatfingerskeyboard&hl=en')
@@ -89,16 +87,12 @@ html(lang='en')
         .row
           .col-lg-12.text-center
             h2 About
-            |                     
             hr.circle-light
-        |             
         .row.text-center
           .col-lg-2
-          |                 
           .col-lg-8
             p
-              | Bobby is an experienced software engineer with degrees in Mathematics and Linguistics. He specializes in Machine Learning and Natural Language Processing.  However, he is at heart a generalist, loves learning new technologies, and is comfortable working on frontends and backends alike.
-          |                 
+              | Bobby is an experienced software engineer with degrees in Computer Science, Mathematics and Linguistics. He specializes in Machine Learning and Natural Language Processing.  However, he is at heart a generalist, loves learning new technologies, and is comfortable working on frontends and backends alike.
           .col-lg-2
     // Contact Section
     section#contact
@@ -106,77 +100,49 @@ html(lang='en')
         .row
           .col-lg-12.text-center
             h2 Contact
-            |                     
             hr.circle-primary
-        |             
         .row
           .col-lg-8.col-lg-offset-2
-            // To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.
-            // The form should work on most web servers, but if the form is not working you may need to configure your web server differently.
             form#contactForm(name='sentMessage', novalidate='')
               .row.control-group
                 .form-group.col-xs-12.floating-label-form-group.controls
                   label Name
-                  |                                 
                   input#name.form-control(type='text', placeholder='Name', required='', data-validation-required-message='Please enter your name.')
-                  |                                 
                   p.help-block.text-danger
-              |                         
               .row.control-group
                 .form-group.col-xs-12.floating-label-form-group.controls
                   label Email Address
-                  |                                 
                   input#email.form-control(type='email', placeholder='Email Address', required='', data-validation-required-message='Please enter your email address.')
-                  |                                 
                   p.help-block.text-danger
-              |                         
               .row.control-group
                 .form-group.col-xs-12.floating-label-form-group.controls
                   label Phone Number
-                  |                                 
                   input#phone.form-control(type='tel', placeholder='Phone Number', required='', data-validation-required-message='Please enter your phone number.')
-                  |                                 
                   p.help-block.text-danger
-              |                         
               .row.control-group
                 .form-group.col-xs-12.floating-label-form-group.controls
                   label Message
-                  |                                 
                   textarea#message.form-control(rows='5', placeholder='Message', required='', data-validation-required-message='Please enter a message.')
-                  |                                 
                   p.help-block.text-danger
-              |                         
               br
-              |                         
               #success
-              |                         
               .row
                 .form-group.col-xs-12
                   button.btn.btn-success.btn-lg(type='submit') Send
-    // Footer
     footer.text-center
       .footer-below
         .container
           .row
             .col-lg-12
               | Copyright &copy; Bobby Brennan 2014
-    // Scroll to Top Button (Only visible on small and extra-small screen sizes)
     .scroll-top.page-scroll.visible-xs.visble-sm
       a.btn.btn-primary(href='#page-top')
         i.fa.fa-chevron-up
-    // jQuery
     script(src='/js/jquery.js')
-    // Bootstrap Core JavaScript
     script(src='/js/bootstrap.min.js')
-    // Plugin JavaScript
     script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js')
-    |     
     script(src='/js/classie.js')
-    |     
     script(src='/js/cbpAnimatedHeader.js')
-    // Contact Form JavaScript
     script(src='/js/jqBootstrapValidation.js')
-    |     
     script(src='/js/contact_me.js')
-    // Custom Theme JavaScript
     script(src='/js/freelancer.js')
