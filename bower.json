@@ -11,6 +11,7 @@
     "tests"
   ],
   "dependencies": {
+    "angular-marked": "~0.0.21",
     "fontawesome": "~4.4.0"
   }
 }

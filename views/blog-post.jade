@@ -16,6 +16,8 @@ html(lang='en')
     link(href='/css/blog.css', rel='stylesheet')
     script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
     script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js")
+    script(src="/bower/marked/lib/marked.js")
+    script(src="/bower/angular-marked/angular-marked.js")
     script(src="/js/blog-post.js")
     script.
       var ARTICLE = !{JSON.stringify(entry)};
@@ -40,15 +42,20 @@ html(lang='en')
           #AddComment.row(ng-controller="AddComment")
             .col-xs-12
               .form-group
-                textarea.form-control(ng-model="comment" placeholder="Leave a note...")
+                textarea.form-control(
+                    ng-model="comment" placeholder="Leave a note..."
+                    ng-focus="showTip = true" ng-blur="showTip = false")
+              .form-group
+                .alert.alert-info(ng-show="showTip") Tip: you can use Markdown
               .form-group
                 input.form-control(type="text" ng-model="by" placeholder="Name (optional)")
-              a.btn.btn-success.pull-right(ng-click="addComment()") Submit
+              a.btn.btn-success.pull-right(ng-mousedown="addComment()" ng-class="{disabled: sending}")
+                span(ng-if="!sending") Submit
+                span(ng-if="sending") Sending...
               .clearfix
               hr
           .row(ng-repeat="comment in comments")
             .col-xs-12
               h6 {{ comment.by || 'anonymous' }}
-              p {{ comment.text }}
-                i(ng-if="!comment.text") No text provided
+              div(marked="comment.text || '*No text provided*'")
               hr
