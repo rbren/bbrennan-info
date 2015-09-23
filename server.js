@@ -10,7 +10,6 @@ App.use(require('body-parser').json());
 App.use(Express.static(__dirname + '/static'));
 
 App.post('/contact', function(req, res) {
-  console.log('contact:' + JSON.stringify(req.body));
   var text =
       'Date:' + new Date() + '\n' +
       'Email:' + req.body.email + '\n' +
@@ -25,6 +24,8 @@ App.post('/contact', function(req, res) {
     res.end('ERROR');
   }
 });
+
+App.use('/blog', require('./routes/blog.js'));
 
 App.get('*', function(req, res) {
   res.render('index');

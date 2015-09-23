@@ -1,0 +1,62 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title= entry.title + ' - Bobby\'s World'
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/freelancer.css', rel='stylesheet')
+    link(href='/css/index.css', rel='stylesheet')
+    link(rel="stylesheet" href="/bower/fontawesome/css/font-awesome.min.css")
+    link(href='http://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic', rel='stylesheet', type='text/css')
+    link(href='/css/blog.css', rel='stylesheet')
+    link(href='/bower/highlightjs/styles/hybrid.css', rel="stylesheet")
+    script(src="/js/google-analytics.js")
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
+    script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js")
+    script(src="/bower/marked/lib/marked.js")
+    script(src="/bower/angular-marked/angular-marked.js")
+    script(src="/bower/highlightjs/highlight.pack.min.js")
+    script(src="/js/blog-post.js")
+    script.
+      var ARTICLE = !{JSON.stringify(entry)};
+
+  body(ng-app="app")
+    .container(ng-controller="Article")
+      .row
+        .col-xs-12.col-lg-10.col-lg-offset-1
+          h1
+            span= entry.title
+          p= entry.description
+          p.small= entry.dateString
+            .clearfix
+          hr
+          div(marked="article.content")
+          hr
+        .col-xs-12.col-lg-10.col-lg-offset-1(ng-controller="Comments")
+          h2 Comments
+          hr
+          .row
+            .col-xs-12
+              .form-group
+                textarea.form-control(
+                    ng-model="comment" placeholder="Leave a note..."
+                    ng-focus="showTip = true" ng-blur="showTip = false")
+              .form-group
+                .alert.alert-info(ng-show="showTip") Tip: you can use Markdown
+              .form-group
+                input.form-control(type="text" ng-model="by" placeholder="Name (optional)")
+              a.btn.btn-success.pull-right(ng-mousedown="addComment()" ng-class="{disabled: sending}")
+                span(ng-if="!sending") Submit
+                span(ng-if="sending") Sending...
+              .clearfix
+              hr
+          .row(ng-repeat="comment in comments")
+            .col-xs-12
+              h6 {{ comment.by || 'anonymous' }}
+              .comment(marked="comment.text || '*No text provided*'")
+              hr
