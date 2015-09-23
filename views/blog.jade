@@ -1,0 +1,30 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title B^3: Bobby Brennan's Blog
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/freelancer.css', rel='stylesheet')
+    link(href='/css/index.css', rel='stylesheet')
+    link(rel="stylesheet" href="/bower/fontawesome/css/font-awesome.min.css")
+    link(href='http://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
+    link(href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic', rel='stylesheet', type='text/css')
+    link(href='/css/blog.css', rel='stylesheet')
+  body
+    .container
+      .col-xs-12.col-lg-10.col-lg-offset-1
+        h1 Bobby Brennan's Blog
+        p A collection of thoughts, tips, and tirades
+        hr
+        for entry in entries
+          .row
+            .col-xs-12
+              h3
+                a(href='/blog' + entry.url)= entry.title
+              p.small= entry.dateString
+              p= entry.description
+              hr
