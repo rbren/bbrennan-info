@@ -2,6 +2,7 @@ var App = angular.module('app', ['hc.marked']);
 App.config(['markedProvider', function(markedProvider) {
   markedProvider.setOptions({
     gfm: true,
+    breaks: true,
     highlight: function (code) {
       return hljs.highlightAuto(code).value;
     },

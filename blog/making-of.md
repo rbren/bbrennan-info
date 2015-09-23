@@ -15,6 +15,7 @@ There are a few reasons I wanted to build my own:
 * I'll be writing a lot about web tools, and want to be able to embed demos
 * It sounded like fun
 
+<br>
 ## The Requirements
 I wanted each blog post to be a Markdown file. I also wanted a cover page with the latest posts,
 So I'd need to be able to include some metadata like title, description, and date created.
@@ -23,6 +24,7 @@ As a bonus challenge, I wanted to include a commenting system. This means we'll 
 
 How hard could it be?
 
+<br>
 ## The Stack
 I've been using NodeJS with Express for the last year, and for a simple webservice I can't imagine
 anything better.  I'm also using AngularJS to control the comments section. It beats
@@ -44,6 +46,7 @@ But for small amounts of data, with few writes, it's insanely convenient.  You g
 
 We'll see the basics of using GitBack below.
 
+<br>
 ## The Code
 Let's start by writing the first post:
 
@@ -52,6 +55,7 @@ Let's start by writing the first post:
 This is **my first post**!
 ```
 
+<br>
 Now we need a Node router to turn them into webpages. We'll use the npm package
 [marked]('https://www.npmjs.com/package/marked') to render the markdown.
 
@@ -68,6 +72,7 @@ Router.get('/:post', function() {
 })
 ```
 
+<br>
 I like to use Jade for rendering HTML:
 
 **./views/blog-post.jade**
@@ -83,6 +88,7 @@ I like to use Jade for rendering HTML:
       div !{Marked(entry.contents)}
 ```
 
+<br>
 ### Adding Comments
 To enable comments, we'll need a datastore. As I mentioned, we'll be using the open-source GitBack.
 
@@ -116,6 +122,7 @@ GitBack will maintain a local copy of that repository in the specified directory
 We can get fancier by enforcing a particular schema, adding access control,
 or adding middleware to modify the input and output data, but for now we'll accept arbitrary JSON.
 
+<br>
 Now we'll use AngularJS to read and write comments:
 
 **./static/js/ng/blog-post.js**
@@ -147,6 +154,7 @@ App.controller('Comments', function($scope) {
 
 Easy right? Gitback automatically exposes RESTful endpoints for creating and retrieving comments.
 
+<br>
 Now we just need to implement the comment UI:
 
 **./views/blog-post.jade**
@@ -169,10 +177,12 @@ div(ng-controller="Comments")
 
 That's it! Maybe 100 lines of non-boilerplate code. It took longer to write this post.
 
+<br>
 It's amazing how far the web has come in the last ten years. The proliferation of free
 and open source solutions to common problems has simplified and accelerated the development
 process by orders of magnitude. 
 
+<br>
 ## The Results
 See for yourself! Leave a comment below and test it out.
 
