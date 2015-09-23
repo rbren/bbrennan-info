@@ -1,5 +1,12 @@
 var App = angular.module('app', ['hc.marked']);
-
+App.config(['markedProvider', function(markedProvider) {
+  markedProvider.setOptions({
+    gfm: true,
+    highlight: function (code) {
+      return hljs.highlightAuto(code).value;
+    },
+  });
+}]);
 App.controller('Article', function($scope) {
   $scope.article = ARTICLE;
 })
@@ -7,11 +14,10 @@ App.controller('Article', function($scope) {
 App.controller('Comments', function($scope) {
   $scope.refresh = function() {
     $.getJSON('/blog/api/comments?article=' + encodeURIComponent($scope.article.url), function(comments) {
-      console.log('com', comments);
       $scope.comments = comments;
       $scope.comments.forEach(function(comment) {
         comment.date = parseInt(comment.id);
-      })
+      });
       $scope.comments.sort(function(c1, c2) {
         if (c1.date > c2.date) return -1;
         if (c1.date < c2.date) return 1;
