@@ -8,7 +8,7 @@ END_METADATA
 ## Motivation
 I'm determined to get back into writing. I figure a blog is an easy way to start.
 
-#### Why not just use Blogger or medium.com?
+### Why not just use Blogger or medium.com?
 There are plenty of platforms out there I could have used, none of which I looked at.
 There are a few reasons I wanted to build my own:
 * I wanted to use my own domain
