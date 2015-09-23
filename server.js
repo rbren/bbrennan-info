@@ -9,6 +9,12 @@ App.use(require('body-parser').json());
 
 App.use(Express.static(__dirname + '/static'));
 
+App.all('/posted/*', function(req, res) {
+  var redir = 'http://bbrennan.info:3030' + req.originalUrl.substring(7);
+  console.log('redir', redir);
+  res.redirect(307, redir);
+})
+
 App.post('/contact', function(req, res) {
   console.log('contact:' + JSON.stringify(req.body));
   var text =
