@@ -11,7 +11,7 @@ var ENTRIES_KEYED = {};
 
 var DB = new Gitback({
   directory: __dirname + '/../database',
-  remote: 'https://github.com/bobby-brennan/gitback-blog.git',
+  remote: 'git@github.com:bobby-brennan/gitback-blog.git',
 });
 
 DB.initialize(function(err) {
