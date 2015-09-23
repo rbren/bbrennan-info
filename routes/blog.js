@@ -2,12 +2,23 @@ var FS = require('fs');
 var Marked = require('marked');
 var DateFormat = require('dateformat');
 var Router = module.exports = require('express').Router();
+var Gitback = require('gitback');
 
 var BLOG_DIR = __dirname + '/../blog';
 var DATE_FORMAT = 'dddd, mmmm dS, yyyy';
 
 var ENTRIES = null;
 var ENTRIES_KEYED = {};
+
+var DB = new Gitback({
+  directory: __dirname + '/../database',
+  remote: 'https://github.com/bobby-brennan/gitback-blog.git',
+});
+
+DB.initialize(function(err) {
+  if (err) throw err;
+  Router.use('/api', DB.router);
+})
 
 var reloadEntries = function() {
   ENTRIES = FS.readdirSync(BLOG_DIR).filter(function(file) {
