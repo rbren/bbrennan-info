@@ -19,6 +19,15 @@ DB.initialize(function(err) {
   Router.use('/api', DB.router);
 })
 
+if (process.env.DEVELOPMENT) {
+  Router.use(function(req, res, next) {
+    DB.collections.articles.reload(function(err) {
+      if (err) throw err;
+      next();
+    })
+  })
+}
+
 Router.get('/:post', function(req, res) {
   var entry = DB.collections.articles.get(req.params.post);
   if (!entry) return res.status(404).end();
