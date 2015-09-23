@@ -13,7 +13,7 @@ App.controller('Article', function($scope) {
 
 App.controller('Comments', function($scope) {
   $scope.refresh = function() {
-    $.getJSON('/blog/api/comments?article=' + encodeURIComponent($scope.article.url), function(comments) {
+    $.getJSON('/blog/api/comments?article=' + $scope.article.id, function(comments) {
       $scope.comments = comments;
       $scope.comments.forEach(function(comment) {
         comment.date = parseInt(comment.id);
@@ -27,9 +27,7 @@ App.controller('Comments', function($scope) {
     });
   }
   $scope.refresh();
-})
 
-App.controller('AddComment', function($scope) {
   $scope.addComment = function() {
     $scope.sending = true;
     $.ajax('/blog/api/comments', {
@@ -41,7 +39,7 @@ App.controller('AddComment', function($scope) {
       },
       data: JSON.stringify({
         id: new String((new Date()).getTime()),
-        article: $scope.article.url,
+        article: $scope.article.id,
         text: $scope.comment,
         by: $scope.by || 'anonymous',
       }),

@@ -40,7 +40,7 @@ html(lang='en')
         .col-xs-12.col-lg-10.col-lg-offset-1(ng-controller="Comments")
           h2 Comments
           hr
-          #AddComment.row(ng-controller="AddComment")
+          .row
             .col-xs-12
               .form-group
                 textarea.form-control(
@@ -58,5 +58,5 @@ html(lang='en')
           .row(ng-repeat="comment in comments")
             .col-xs-12
               h6 {{ comment.by || 'anonymous' }}
-              div(marked="comment.text || '*No text provided*'")
+              .comment(marked="comment.text || '*No text provided*'")
               hr
