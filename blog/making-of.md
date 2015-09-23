@@ -148,6 +148,8 @@ App.controller('Comments', function($scope) {
 Easy right? Gitback automatically exposes RESTful endpoints for creating and retrieving comments.
 
 Now we just need to implement the comment UI:
+
+**./views/blog-post.jade**
 ```jade
 div(ng-controller="Comments")
   .row

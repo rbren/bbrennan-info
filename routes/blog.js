@@ -1,5 +1,4 @@
 var FS = require('fs');
-var Marked = require('marked');
 var DateFormat = require('dateformat');
 var Router = module.exports = require('express').Router();
 var Gitback = require('gitback');
@@ -52,7 +51,7 @@ if (process.env.DEVELOPMENT) {
 Router.get('/:post', function(req, res) {
   var entry = ENTRIES_KEYED[req.params.post];
   if (!entry) return res.status(404).end();
-  res.render('blog-post', {entry: entry, Marked: Marked});
+  res.render('blog-post', {entry: entry});
 }) 
 
 Router.get('/', function(req, res) {
