@@ -33,6 +33,29 @@ header h3 .fa {
   vertical-align: middle;
 }
 
+.portfolio-item img {
+  min-width: 100%;
+}
+
+#portfolio .portfolio-item .caption {
+  z-index: 100;
+}
+
+.fake-image {
+  padding-bottom: 72.222222%;
+  background-color: green;
+  text-align: center;
+  position: relative;
+}
+
+.fake-image > i {
+  position: absolute;
+  top: 50%;
+  font-size: 64px;
+  margin-left: -32px;
+  margin-top: -32px;
+}
+
 .caption-content {
   padding: 10px;
 }
