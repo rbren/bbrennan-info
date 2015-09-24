@@ -18,6 +18,7 @@ html(lang='en')
     script(src="/js/google-analytics.js")
     script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
     script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.5/angular-animate.min.js")
     script(src="/bower/marked/lib/marked.js")
     script(src="/bower/angular-marked/angular-marked.js")
     script(src="/bower/highlightjs/highlight.pack.min.js")
@@ -28,16 +29,17 @@ html(lang='en')
   body(ng-app="app")
     .container(ng-controller="Article")
       .row
-        .col-xs-12.col-lg-10.col-lg-offset-1
+        .col-xs-12.col-lg-10.col-lg-offset-1.heading
           h1
             span= entry.title
           p= entry.description
           p.small= entry.dateString
             .clearfix
+        .col-xs-12.col-lg-10.col-lg-offset-1
           hr
           div(marked="article.content")
           hr
-        .col-xs-12.col-lg-10.col-lg-offset-1(ng-controller="Comments")
+        #Comments.col-xs-12.col-lg-10.col-lg-offset-1(ng-controller="Comments" ng-cloak)
           h2 Comments
           hr
           .row
@@ -47,9 +49,13 @@ html(lang='en')
                     ng-model="comment" placeholder="Leave a note..."
                     ng-focus="showTip = true" ng-blur="showTip = false")
               .form-group
-                .alert.alert-info(ng-show="showTip") Tip: you can use Markdown
+                .alert.alert-info.animate-show(ng-show="showTip") Tip: you can use Markdown
               .form-group
                 input.form-control(type="text" ng-model="by" placeholder="Name (optional)")
+              .form-group
+                .alert.alert-success.animate-show(ng-show="sent") Thanks for the comment!
+              .form-group
+                .alert.alert-danger.animate-show(ng-show="error") Whoops, something went wrong.
               a.btn.btn-success.pull-right(ng-mousedown="addComment()" ng-class="{disabled: sending}")
                 span(ng-if="!sending") Submit
                 span(ng-if="sending") Sending...
