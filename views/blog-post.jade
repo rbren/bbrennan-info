@@ -6,7 +6,7 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     meta(name='description', content='')
     meta(name='author', content='')
-    title= entry.title + ' - Bobby\'s World'
+    title= article.title + ' - Bobby\'s World'
     link(href='/css/bootstrap.min.css', rel='stylesheet')
     link(href='/css/freelancer.css', rel='stylesheet')
     link(href='/css/index.css', rel='stylesheet')
@@ -24,16 +24,16 @@ html(lang='en')
     script(src="/bower/highlightjs/highlight.pack.min.js")
     script(src="/js/blog-post.js")
     script.
-      var ARTICLE = !{JSON.stringify(entry)};
+      var ARTICLE = !{JSON.stringify(article)};
 
   body(ng-app="app")
     .container(ng-controller="Article")
       .row
         .col-xs-12.col-lg-10.col-lg-offset-1.heading
           h1
-            span= entry.title
-          p= entry.description
-          p.small= entry.dateString
+            span= article.title
+          p= article.description
+          p.small= article.dateString
             .clearfix
         .col-xs-12.col-lg-10.col-lg-offset-1
           hr
