@@ -1,4 +1,4 @@
-var App = angular.module('app', ['hc.marked']);
+var App = angular.module('app', ['hc.marked', 'ngAnimate']);
 App.config(['markedProvider', function(markedProvider) {
   markedProvider.setOptions({
     gfm: true,
@@ -30,11 +30,22 @@ App.controller('Comments', function($scope) {
 
   $scope.addComment = function() {
     $scope.sending = true;
+    $scope.sent = false;
+    $scope.error = false;
     $.ajax('/blog/api/comments', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
+      error: function() {
+        console.log('error', arguments);
+        $scope.sending = false;
+        $scope.error = true;
+        $scope.$apply();
+      },
       success: function() {
         $scope.sending = false;
+        $scope.comment = '';
+        $scope.sent = true;
+        setTimeout(function() {$scope.sent = false; $scope.$apply()}, 2500);
         $scope.refresh();
       },
       data: JSON.stringify({
