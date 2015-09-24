@@ -31,11 +31,11 @@ if (process.env.DEVELOPMENT) {
 }
 
 Router.get('/:post', function(req, res) {
-  var entry = DB.collections.articles.get(req.params.post);
-  if (!entry) return res.status(404).end();
-  res.render('blog-post', {entry: entry});
+  var article = DB.collections.articles.get(req.params.post);
+  if (!article) return res.status(404).end();
+  res.render('blog-post', {article: article});
 }) 
 
 Router.get('/', function(req, res) {
-  res.render('blog', {entries: DB.collections.articles.get()});
+  res.render('blog', {articles: DB.collections.articles.get()});
 });
