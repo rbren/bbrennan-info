@@ -7,14 +7,14 @@ html(lang='en')
     meta(name='description', content='')
     meta(name='author', content='')
     title= article.title
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/css/freelancer.css', rel='stylesheet')
-    link(href='/css/index.css', rel='stylesheet')
-    link(rel="stylesheet" href="/bower/fontawesome/css/font-awesome.min.css")
-    link(href='http://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
-    link(href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic', rel='stylesheet', type='text/css')
-    link(href='/css/blog.css', rel='stylesheet')
-    link(href='/bower/highlightjs/styles/hybrid.css', rel="stylesheet")
+    link(rel='stylesheet' href='/css/bootstrap.min.css',)
+    link(rel='stylesheet' href='/css/freelancer.css',)
+    link(rel='stylesheet' href='/css/index.css',)
+    link(rel='stylesheet' href='/bower/fontawesome/css/font-awesome.min.css')
+    link(rel='stylesheet' href='http://fonts.googleapis.com/css?family=Montserrat:400,700',)
+    link(rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic',)
+    link(rel='stylesheet' href='/css/blog.css',)
+    link(rel='stylesheet' href='/bower/highlightjs/styles/hybrid.css',)
     script(src="/js/google-analytics.js")
     script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
     script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js")
@@ -34,8 +34,11 @@ html(lang='en')
             span= article.title
           p= article.description
           p.small= article.dateString
-            .clearfix
-        .col-xs-12.col-lg-10.col-lg-offset-1
+        .col-xs-12.col-lg-10.col-lg-offset-1.blog-content
+          a(href="/blog")
+            span.fa.fa-chevron-left
+            span &nbsp;&nbsp;
+            span Back to Articles
           hr
           div(marked="article.content")
           hr
