@@ -6,6 +6,11 @@ App.config(['markedProvider', function(markedProvider) {
       return hljs.highlightAuto(code).value;
     },
   });
+  markedProvider.setRenderer({
+    link: function(href, title, text) {
+      return "<a href='" + href + "'" + (title ? " title='" + title + "'" : '') + " target='_blank'>" + text + "</a>";
+    }
+  });
 }]);
 App.controller('Article', function($scope) {
   $scope.article = ARTICLE;
