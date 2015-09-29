@@ -74,9 +74,6 @@ html(lang='en')
                   .caption-content
                     span= caption
                 img.img-responsive(src=image)
-          +portfolio-item('/img/portfolio/lucy.png',
-                          'LucyBot specializes in API developer experience, and provides tools for documentation and SDK generation',
-                          'http://lucybot.com/')
           +portfolio-item('/img/portfolio/anyapi.png',
                           'AnyAPI provides documentation and test consoles for over 100 public APIs',
                           'https://any-api.com')
@@ -95,9 +92,6 @@ html(lang='en')
           +portfolio-item('/img/portfolio/nostop.png',
                           'A brief study of Betteridge\'s assertion that all headlines in the form of a question can be answered \'no.\'',
                           'http://www.nostopasking.com:3020/nostop')
-          +portfolio-item('/img/portfolio/ffk.png',
-                          'Fat Fingers Keyboard is a now-abandoned alternative keyboard I built for Android in 2009',
-                          'https://play.google.com/store/apps/details?id=com.bobby.brennan.fatfingerskeyboard&hl=en')
     // About Section
     section#about.success
       .container
@@ -124,22 +118,22 @@ html(lang='en')
               .row.control-group
                 .form-group.col-xs-12.floating-label-form-group.controls
                   label Name
-                  input#name.form-control(type='text', placeholder='Name', required='', data-validation-required-message='Please enter your name.')
+                  input#name.form-control(type='text', placeholder='Name')
                   p.help-block.text-danger
               .row.control-group
                 .form-group.col-xs-12.floating-label-form-group.controls
                   label Email Address
-                  input#email.form-control(type='email', placeholder='Email Address', required='', data-validation-required-message='Please enter your email address.')
+                  input#email.form-control(type='email', placeholder='Email Address')
                   p.help-block.text-danger
               .row.control-group
                 .form-group.col-xs-12.floating-label-form-group.controls
                   label Phone Number
-                  input#phone.form-control(type='tel', placeholder='Phone Number', required='', data-validation-required-message='Please enter your phone number.')
+                  input#phone.form-control(type='tel', placeholder='Phone Number')
                   p.help-block.text-danger
               .row.control-group
                 .form-group.col-xs-12.floating-label-form-group.controls
                   label Message
-                  textarea#message.form-control(rows='5', placeholder='Message', required='', data-validation-required-message='Please enter a message.')
+                  textarea#message.form-control(rows='5', placeholder='Message')
                   p.help-block.text-danger
               br
               #success
