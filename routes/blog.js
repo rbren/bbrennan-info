@@ -2,6 +2,7 @@ var FS = require('fs');
 var DateFormat = require('dateformat');
 var Router = module.exports = require('express').Router();
 var Gitback = require('gitback');
+var RSS = require('rss');
 
 var BLOG_DIR = __dirname + '/../blog';
 var DATE_FORMAT = 'dddd, mmmm dS, yyyy';
@@ -29,6 +30,27 @@ if (process.env.DEVELOPMENT) {
     })
   })
 }
+
+Router.get('/rss', function(req, res) {
+  var rssFeed = new RSS({
+    title: 'Bobby Brennan\'s Blog',
+    description: 'A collection of thoughts, tips, and tirades',
+    feed_url: 'http://bbrennan.info/blog/rss',
+    site_url: 'http://bbrennan.info/blog',
+  });
+
+  var articles = DB.collections.articles.get();
+  articles.forEach(function(article) {
+    rssFeed.item({
+      title: article.title,
+      description: article.description,
+      url: 'http://bbrennan.info/blog/' + article.id,
+      date: new Date(article.date),
+      author: 'Bobby Brennan',
+    })
+  })
+  res.header('Content-Type','text/xml').send(rssFeed.xml())
+})
 
 Router.get('/:post', function(req, res) {
   var article = DB.collections.articles.get(req.params.post);
