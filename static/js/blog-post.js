@@ -37,6 +37,10 @@ App.controller('Comments', function($scope) {
     $scope.sending = true;
     $scope.sent = false;
     $scope.error = false;
+    if ($scope.comment.match('<script')) {
+      $scope.error = 'This is why we can\'t have nice things :(';
+      return;
+    }
     $.ajax('/blog/api/comments', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},

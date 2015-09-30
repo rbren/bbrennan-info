@@ -58,7 +58,8 @@ html(lang='en')
               .form-group
                 .alert.alert-success.animate-show(ng-show="sent") Thanks for the comment!
               .form-group
-                .alert.alert-danger.animate-show(ng-show="error") Whoops, something went wrong.
+                .alert.alert-danger.animate-show(ng-show="error")
+                  span {{ error === true ? 'Whoops, something went wrong.' : error }}
               a.btn.btn-success.pull-right(ng-mousedown="addComment()" ng-class="{disabled: sending}")
                 span(ng-if="!sending") Submit
                 span(ng-if="sending") Sending...
