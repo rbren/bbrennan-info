@@ -8,6 +8,10 @@ pre {
   color: #fff;
 }
 
+.blog-content {
+  padding-top: 15px;
+}
+
 .comment {
   border-radius: 4px;
   border: 1px solid #333;
