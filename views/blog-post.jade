@@ -24,6 +24,13 @@ html(lang='en')
     script(src="/bower/angular-marked/angular-marked.js")
     script(src="/bower/highlightjs/highlight.pack.min.js")
     script(src="/js/blog-post.js")
+
+    // For social buttons
+    script(type="text/javascript") var switchTo5x=true
+    script(type="text/javascript" src="http://w.sharethis.com/button/buttons.js")
+    script(type="text/javascript").
+      stLight.options({publisher: "e0dba49d-8ce8-497a-92fa-608977dfb200", doNotHash: false, doNotCopy: false, hashAddressBar: false});
+
     script.
       var ARTICLE = !{JSON.stringify(article)};
 
@@ -42,6 +49,14 @@ html(lang='en')
             span Back to Articles
           hr
           div(ng-bind-html="renderedArticle")
+          hr
+          span(class='st_twitter_large' displayText='Tweet')
+          span(class='st_facebook_large' displayText='Facebook')
+          span(class='st_googleplus_large' displayText='Google +')
+          span(class='st_linkedin_large' displayText='LinkedIn')
+          span(class='st_stumbleupon_large' displayText='StumbleUpon')
+          span(class='st_reddit_large' displayText='Reddit')
+          span(class='st_email_large' displayText='Email')
           hr
         #Comments.col-xs-12.col-lg-10.col-lg-offset-1(ng-controller="Comments" ng-cloak)
           h2 Comments
