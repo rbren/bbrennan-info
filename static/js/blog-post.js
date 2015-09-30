@@ -16,7 +16,7 @@ App.config(['markedProvider', function(markedProvider) {
 App.controller('Article', ['$scope', 'marked', '$sce', function($scope, marked, $sce) {
   $scope.article = ARTICLE;
   $scope.renderedArticle = marked($scope.article.content, {sanitize: false});
-  $sce.trustAsHtml($scope.renderedArticle);
+  $scope.renderedArticle = $sce.trustAsHtml($scope.renderedArticle);
 }]);
 
 App.controller('Comments', function($scope) {
