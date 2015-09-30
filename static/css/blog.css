@@ -8,6 +8,10 @@ pre {
   color: #fff;
 }
 
+.heading a {
+  color: #6BB9F0;
+}
+
 .comment {
   border-radius: 4px;
   border: 1px solid #333;
