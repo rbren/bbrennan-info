@@ -12,6 +12,7 @@
   ],
   "dependencies": {
     "angular-marked": "~0.0.21",
+    "angular-sanitize": "~1.4.7",
     "fontawesome": "~4.4.0",
     "highlightjs": "~8.8.0"
   }
