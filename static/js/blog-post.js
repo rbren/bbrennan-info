@@ -1,7 +1,8 @@
-var App = angular.module('app', ['hc.marked', 'ngAnimate']);
+var App = angular.module('app', ['hc.marked', 'ngAnimate', 'ngSanitize']);
 App.config(['markedProvider', function(markedProvider) {
   markedProvider.setOptions({
     gfm: true,
+    sanitize: true,
     highlight: function (code) {
       return hljs.highlightAuto(code).value;
     },
@@ -12,9 +13,11 @@ App.config(['markedProvider', function(markedProvider) {
     }
   });
 }]);
-App.controller('Article', function($scope) {
+App.controller('Article', ['$scope', 'marked', '$sce', function($scope, marked, $sce) {
   $scope.article = ARTICLE;
-})
+  $scope.renderedArticle = marked($scope.article.content, {sanitize: false});
+  $sce.trustAsHtml($scope.renderedArticle);
+}]);
 
 App.controller('Comments', function($scope) {
   $scope.refresh = function() {
@@ -37,10 +40,6 @@ App.controller('Comments', function($scope) {
     $scope.sending = true;
     $scope.sent = false;
     $scope.error = false;
-    if ($scope.comment.match('<script')) {
-      $scope.error = 'This is why we can\'t have nice things :(';
-      return;
-    }
     $.ajax('/blog/api/comments', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
