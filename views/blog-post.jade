@@ -40,13 +40,14 @@ html(lang='en')
         .col-xs-12.col-lg-10.col-lg-offset-1.heading
           h1
             span= article.title
-          p= article.description
-          p.small= article.dateString
-        .col-xs-12.col-lg-10.col-lg-offset-1.blog-content
-          a(href="/blog")
-            span.fa.fa-chevron-left
-            span &nbsp;&nbsp;
-            span Back to Articles
+          p
+            span.pull-left= article.description
+            a.pull-right(href="/blog")
+              span.fa.fa-chevron-left
+              span &nbsp;&nbsp;
+              span Back to Articles
+            .clearfix
+        .col-xs-12.col-lg-10.col-lg-offset-1
           hr
           div(ng-bind-html="renderedArticle")
           hr
