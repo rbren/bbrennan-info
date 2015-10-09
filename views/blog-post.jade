@@ -25,6 +25,8 @@ html(lang='en')
     script(src="/bower/highlightjs/highlight.pack.min.js")
     script(src="/js/blog-post.js")
 
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js")
+
     // For social buttons
     script(type="text/javascript") var switchTo5x=true
     script(type="text/javascript" src="http://w.sharethis.com/button/buttons.js")
@@ -32,7 +34,7 @@ html(lang='en')
       stLight.options({publisher: "e0dba49d-8ce8-497a-92fa-608977dfb200", doNotHash: false, doNotCopy: false, hashAddressBar: false});
 
     script.
-      var ARTICLE = !{JSON.stringify(article)};
+      var ARTICLE = !{JSON.stringify(article).replace(/<\/script>/g, '</scr" + "ipt>')};
 
   body(ng-app="app")
     .container(ng-controller="Article")
