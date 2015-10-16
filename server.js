@@ -11,6 +11,12 @@ App.use(Express.static(__dirname + '/static'));
 
 App.use('/strapping', require('strapping')({basePath: '/strapping'}));
 
+App.all('/posted/*', function(req, res) {
+  var redir = 'http://bbrennan.info:3030' + req.originalUrl.substring(7);
+  console.log('redir', redir);
+  res.redirect(307, redir);
+})
+
 App.post('/contact', function(req, res) {
   var text =
       'Date:' + new Date() + '\n' +
