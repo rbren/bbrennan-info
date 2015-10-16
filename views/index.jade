@@ -65,7 +65,7 @@ html(lang='en')
                 .caption
                   .caption-content
                     span= caption
-                .fake-image.img-responsive(style="background-color: #{bgcolor}; color: #{color}")
+                .fake-image(style="background-color: #{bgcolor}; color: #{color}")
                   i.fa(class='fa-' + icon)
           mixin portfolio-item(image, caption, link)
             .col-xs-12.col-sm-4.portfolio-item
@@ -73,10 +73,21 @@ html(lang='en')
                 .caption
                   .caption-content
                     span= caption
-                img.img-responsive(src=image)
+                img(src=image)
+          mixin portfolio-item-text(text, caption, link, classname)
+            .col-xs-12.col-sm-4.portfolio-item(class=classname)
+              a.portfolio-link(href=link, data-toggle='modal', target="_blank")
+                .caption
+                  .caption-content
+                    span= caption
+                .fake-text-image.text-center
+                  span #{text}
           +portfolio-item('/img/portfolio/anyapi.png',
                           'AnyAPI provides documentation and test consoles for over 100 public APIs',
                           'https://any-api.com')
+          +portfolio-item-icon('css3',
+                               'Strapping allows you to build your own theme for Bootstrap.',
+                               '/strapping', '#333', '#ef4836')
           +portfolio-item('/img/portfolio/webans.png',
                           'An example of work I did in open-domain, long-form question answering while working at Google. See LinkedIn for more details',
                           'https://www.google.com/search?q=Why+is+the+sky+blue?')

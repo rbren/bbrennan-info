@@ -9,6 +9,8 @@ App.use(require('body-parser').json());
 
 App.use(Express.static(__dirname + '/static'));
 
+App.use('/strapping', require('strapping')({basePath: '/strapping'}));
+
 App.post('/contact', function(req, res) {
   var text =
       'Date:' + new Date() + '\n' +

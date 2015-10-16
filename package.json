@@ -10,7 +10,8 @@
     "express": "^4.13.3",
     "gitback": "1.0.2",
     "jade": "^1.11.0",
-    "rss": "^1.1.1"
+    "rss": "^1.1.1",
+    "strapping": "^1.0.1"
   },
   "devDependencies": {},
   "scripts": {
