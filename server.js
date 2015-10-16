@@ -35,7 +35,7 @@ App.post('/contact', function(req, res) {
 
 App.use('/blog', require('./routes/blog.js'));
 
-App.get('*', function(req, res) {
+App.get('/', function(req, res) {
   res.render('index');
 });
 
