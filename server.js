@@ -37,6 +37,7 @@ App.post('/contact', function(req, res) {
 });
 
 App.use('/blog', require('./routes/blog.js'));
+App.use('/spec-converter', require('./routes/spec-converter'));
 
 App.get('/', function(req, res) {
   res.render('index');
