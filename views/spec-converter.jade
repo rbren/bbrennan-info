@@ -109,7 +109,7 @@ html(lang='en')
               input.form-control(type="text" placeholder="Source URL" ng-model="form.source")
               .input-group-btn
                 button.btn.btn-default.dropdown-toggle(data-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false")
-                  span {{ formats[form.from] || 'Source Format' }}&nbsp;
+                  span Source Format: {{ formats[form.from] || '' }}&nbsp;
                   span.caret
                 ul.dropdown-menu.dropdown-menu-right
                   li(ng-repeat="(format, label) in formats")
