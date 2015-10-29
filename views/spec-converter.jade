@@ -10,13 +10,16 @@ html(lang='en')
     style.
       body {
         background-color: #E4F1FE;
+        padding-top: 20px;
+        font-size: 16px;
       }
       h1 .fa-exchange {
         color: #EB9532;
       }
       h1 {
         font-size: 50px;
-        margin: 50px;
+        margin-bottom: 80px;
+        margin-top: 50px;
       }
       .example-button {
         min-width: 150px;
@@ -85,15 +88,17 @@ html(lang='en')
   body(ng-app="App")
     .container(ng-controller="Body")
       .col-xs-12.col-md-10.col-md-offset-1
+        iframe(src="https://ghbtns.com/github-btn.html?user=lucybot&repo=api-spec-converter&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px")
+        iframe(src="https://ghbtns.com/github-btn.html?user=lucybot&repo=api-spec-converter&type=watch&count=true&size=large&v=2" frameborder="0" scrolling="0" width="160px" height="30px")
         h1.text-center
           span.fa.fa-exchange
           span &nbsp;&nbsp;
           span API Spec Converter
         p
-          |The goal of this project is to allow API developers to convert between different API
-          |definition formats. This prevents lock-in, and allows developers to take advantage
-          |of tools that only support particular formats. You can read about API definition formats
-          |<a target="_blank" href="http://apiux.com/2013/04/09/rest-metadata-formats/">here</a>.
+          |The goal of this project is to allow API developers to convert between different
+          |<a target="_blank" href="http://apiux.com/2013/04/09/rest-metadata-formats/">API definition formats</a>.
+          |This prevents lock-in, and allows developers to take advantage
+          |of tools that only support particular formats.
         p.
           Currently we only support conversion to Swagger 2.0, but our plan is to support conversion
           between any two formats. The project is open sourced under the MIT license, so feel free
@@ -109,7 +114,7 @@ html(lang='en')
               input.form-control(type="text" placeholder="Source URL" ng-model="form.source")
               .input-group-btn
                 button.btn.btn-default.dropdown-toggle(data-toggle="dropdown" type="button" aria-haspopup="true" aria-expanded="false")
-                  span {{ formats[form.from] || 'Source Format' }}&nbsp;
+                  span Source Format: {{ formats[form.from] || '' }}&nbsp;
                   span.caret
                 ul.dropdown-menu.dropdown-menu-right
                   li(ng-repeat="(format, label) in formats")
