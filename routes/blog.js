@@ -12,7 +12,7 @@ var ENTRIES_KEYED = {};
 
 var DB = new Gitback({
   directory: __dirname + '/../database',
-  remote: 'git@github.com:bobby-brennan/gitback-blog.git',
+  remote: 'git@gitback-blog:bobby-brennan/gitback-blog.git',
   branch: process.env.DEVELOPMENT ? 'dev' : 'master',
   refreshRate: process.env.DEVELOPMENT ? undefined : 30000,
 });
