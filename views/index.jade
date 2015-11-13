@@ -60,7 +60,7 @@ html(lang='en')
             hr.circle-primary
         .row
           mixin portfolio-item-icon(icon, caption, link, color, bgcolor)
-            .col-xs-12.col-sm-4.portfolio-item
+            .col-xs-12.portfolio-item
               a.portfolio-link(href=link data-toggle='modal' target='_blank')
                 .caption
                   .caption-content
@@ -68,14 +68,14 @@ html(lang='en')
                 .fake-image(style="background-color: #{bgcolor}; color: #{color}")
                   i.fa(class='fa-' + icon)
           mixin portfolio-item(image, caption, link)
-            .col-xs-12.col-sm-4.portfolio-item
+            .col-xs-12.portfolio-item
               a.portfolio-link(href=link, data-toggle='modal', target="_blank")
                 .caption
                   .caption-content
                     span= caption
                 img(src=image)
           mixin portfolio-item-text(text, caption, link, classname)
-            .col-xs-12.col-sm-4.portfolio-item(class=classname)
+            .col-xs-12.portfolio-item(class=classname)
               a.portfolio-link(href=link, data-toggle='modal', target="_blank")
                 .caption
                   .caption-content
