@@ -9,7 +9,7 @@ var DATE_FORMAT = 'dddd, mmmm dS, yyyy';
 
 var ENTRIES = [];
 var ENTRIES_KEYED = {};
-
+/*
 var DB = new Gitback({
   directory: __dirname + '/../database',
   remote: 'git@gitback-blog:bobby-brennan/gitback-blog.git',
@@ -21,7 +21,6 @@ DB.initialize(function(err) {
   if (err) throw err;
   Router.use('/api', DB.router);
 })
-
 if (process.env.DEVELOPMENT) {
   Router.use(function(req, res, next) {
     DB.collections.articles.reload(function(err) {
@@ -30,6 +29,15 @@ if (process.env.DEVELOPMENT) {
     })
   })
 }
+*/
+
+var GITBACK_DIR = __dirname + '/../gitback-blog/articles'
+var articles = FS.readdirSync(GITBACK_DIR).map(function(name) {
+  var item = JSON.parse(FS.readFileSync(GITBACK_DIR + '/' + name + '/_item.json', 'utf8'));
+  item.content = FS.readFileSync(GITBACK_DIR + '/' + name + '/content.md', 'utf8');
+  item.id = name;
+  return item;
+})
 
 Router.get('/rss', function(req, res) {
   var rssFeed = new RSS({
@@ -39,7 +47,6 @@ Router.get('/rss', function(req, res) {
     site_url: 'http://bbrennan.info/blog',
   });
 
-  var articles = DB.collections.articles.get();
   articles.forEach(function(article) {
     rssFeed.item({
       title: article.title,
@@ -53,11 +60,11 @@ Router.get('/rss', function(req, res) {
 })
 
 Router.get('/:post', function(req, res) {
-  var article = DB.collections.articles.get(req.params.post);
+  var article = articles.filter(function(a) {return a.id === req.params.post})[0];
   if (!article) return res.status(404).end();
   res.render('blog-post', {article: article});
 }) 
 
 Router.get('/', function(req, res) {
-  res.render('blog', {articles: DB.collections.articles.get()});
+  res.render('blog', {articles: articles});
 });
