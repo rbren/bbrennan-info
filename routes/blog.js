@@ -9,6 +9,11 @@ var DATE_FORMAT = 'dddd, mmmm dS, yyyy';
 
 var ENTRIES = [];
 var ENTRIES_KEYED = {};
+
+Router.get('*', function(req, res) {
+  res.send("I'm currently migrating my blog elsewhere. Stay tuned!")
+})
+
 /*
 var DB = new Gitback({
   directory: __dirname + '/../database',

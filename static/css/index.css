@@ -1,9 +1,13 @@
 header {
-  color: #3498DB;
+  color: #fff;
   position: relative;
   height: 1000px;
   overflow: hidden;
   background-color: #1E8BC3;
+}
+
+header .name {
+  font-size: 80px;
 }
 
 header img.header-img {
