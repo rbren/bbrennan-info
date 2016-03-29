@@ -12,7 +12,7 @@
     "gitback": "1.0.2",
     "jade": "^1.11.0",
     "rss": "^1.1.1",
-    "strapping": "^1.6.1"
+    "strapping": "^1.6.2"
   },
   "devDependencies": {},
   "scripts": {
